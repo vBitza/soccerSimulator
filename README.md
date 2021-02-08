@@ -4,12 +4,19 @@ Soccer Simulator
  Structura fisierelor proiectului
 
   root
+  
   │   players.json              	       # Contine statisticile jucatorilor din FIFA (2018)
+  
   |   players.controller	       # Parseaza jucatorii din fisierul cu jucatori si creeaza echipe
+  
   |   teams.controller	       # Contine functionalitati legate de echipe
+  
   |   match.controller             # Se ocupa de simularea unui meci
+  
   └───frontend            	       # Fisiere necesare pentru interfata grafica
+  
   └───teams          	       # Fisiere cu jucatorii echipelor
+  
  
 Tehnologii folosite
 
@@ -19,11 +26,16 @@ Resurse auxiliare
 
 Pentru a putea genera statistici cat mai reale si pentru a putea compara rezultatele simularilor cu rezultatele unor meciuri reale am hotarat sa folosim statisticile jucatorilor de fotbal din jocul FIFA 2018. Am gasit pe internet un fisier JSON ce contine toti jucatorii echipelor (players.json). Pentru a putea genera echipele am create mai multe functii auxiliare care extrag jucatorii unei echipe din fisierul JSON si ii grupeaza in cadrul unei echipe apoi este scris fisierul echipei in folderul teams.
 Fiecare jucator are urmatoarele caracteristici: 
+
 ["ID", "Name", "Age", "Photo", "Nationality", "Flag", "Overall", "Potential", "Club", "Club Logo", "Value", "Wage", "Special", "Acceleration", "Aggression", "Agility", "Balance", "BallControl", "Body Type", "CAM", "CB", "CDM", "CF", "CM", "Composure", "Contract Valid Until", "Crossing", "Curve", "Dribbling", "FKAccuracy", "Finishing", "GKDiving", "GKHandling", "GKKicking", "GKPositioning", "GKReflexes", "HeadingAccuracy", "Interceptions", "International Reputation", "Jersey Number", "Joined", "Jumping", "LAM", "LB", "LCB", "LCM", "LDM", "LF", "LM", "LS", "LW", "LWB", "Loaned From", "LongPassing", "LongShots", "Marking", "Penalties", "Position", "Positioning", "Preferred Foot", "RAM", "RB", "RCB", "RCM", "RDM", "RF", "RM", "RS", "RW", "RWB", "Reactions", "Real Face", "Release Clause", "ST", "ShortPassing", "ShotPower", "Skill Moves", "SlidingTackle", "SprintSpeed", "Stamina", "StandingTackle", "Strength", "Vision", "Volleys", "Weak Foot", "Work Rate"] 
+
 In schimb, pentru simularea noastra am folosit doar urmatoarele caracteristici ale unui jucator si am creat cateva atribute suplimentare: 
 caracteristici folosite: 
+
  [ “Overall”, “Potential”, “Aggression”, “Stamina”,  “ShortPassing”, “LongPassing”, “ShotPower”, “LongShots”, “Finishing”, “GKPositioning”, “GKDiving”, “GKReflexes” ]
-atribute suplimentare:
+
+Atribute suplimentare:
+
 [ “redCards”, “yellowCards”, “passing”{(ShortPassing+LongPassing / 2)} ]
 
 Caracteristicile unei echipe
