@@ -87,57 +87,36 @@ altfel => va atentiona un fundas
 Urmatoarea actiune calculate este cea de sut la poarta. Aceasta actiune este posibila doar atunci cand pozitia mingii in teren este 4 sau 5. In functie de pozitie, formula de calcul a actiunii are diferiti coeficienti. 
 
 
-if (ballPositionInField == 4) {  
-  attackingTeam.longShots++;  
-   
-   if (chance.bool({likelihood: (shooter.LongShots + shooter.FKAccuracy) / 2})) {  
-      
-      attackingTeam.shotsOnTarget++;  
-      
-      if (chance.bool({likelihood: (0.4 * shooter.ShotPower + 0.6 * shooter.LongShots) / (0.4 * gk.GKPositioning + 0.6 * gk.GKDiving) * 10})) {  
-         
-         return {  
-           
-           attackingTeam,  
-             
-             isGoal: true,  
-           
-           playerWhoScored: shooter  
-        
-        };  
-     
-     };  
-  
-  }  
-}  
+
+    if (ballPositionInField == 4) {  
+      attackingTeam.longShots++; 
+      if (chance.bool({likelihood: (shooter.LongShots + shooter.FKAccuracy) / 2})) { 
+        attackingTeam.shotsOnTarget++;  
+        if (chance.bool({likelihood: (0.4 * shooter.ShotPower + 0.6 * shooter.LongShots) / (0.4 * gk.GKPositioning + 0.6 * gk.GKDiving) * 10})) {  
+          return {  
+           attackingTeam,               
+           isGoal: true,         
+           playerWhoScored: shooter          
+          };  
+        }  
+      }  
+    }  
 
 
 In cazul suturilor de la distanta prima data se calculeaza daca jucatorul reuseste sa nimereasca poarta folosind atributele  LongShots si FKAccuracy (FreeKick Accuracy). Daca acesta nimereste poarta atunci se calculeaza daca a reusit sa si marcheze. Acest lucru se face folosind statisticile jucatorului care a sutat si statisticile portarului advers. In cazul suturilor de la distanta conteaza puterea pozitionarea portarului (GKPositioning) si cat de bine se pricepe la a sari dupa mingi (GKDiving).
 
-if (ballPositionInField == 5) {  
-      
-      attackingTeam.closeShots++;  
-      
-      if (chance.bool({likelihood: shooter.Finishing})) {  
-      
-        attackingTeam.shotsOnTarget++;  
-      
+    if (ballPositionInField == 5) {    
+      attackingTeam.closeShots++;     
+      if (chance.bool({likelihood: shooter.Finishing})) {      
+        attackingTeam.shotsOnTarget++;     
         if (chance.bool({likelihood: (0.6*shooter.ShotPower + 0.6*shooter.Finishing)/ (0.4 * gk.GKPositioning + 0.6 * gk.GKReflexes) * 10})) {  
-      
-           return {  
-      
+           return {       
              attackingTeam,  
-      
              isGoal: true,  
-      
               playerWhoScored: shooter  
-      
-          };            
-      
+           };            
+        }  
       }  
-      
-      }  
-    
     } 
 
 
