@@ -1,0 +1,19 @@
+<div class="matchSettings" [style.display] = "matchHasStarted ? 'none' : 'block'">
+  <div class="matchSettings matchSettings__main">
+    <div class="chooseTeams matchSettings__chooseTeams">
+      <div class="chooseHomeTeam">
+        <input type="text" name="chooseHomeTeam" auto-complete [source]="teamsList" [max-num-list]="5" [min-chars]="2" [value]="" placeholder="Choose home team" (change)="onChangeHomeTeam($event)"  [(ngModel)]="homeTeamName" >
+      </div>
+      <div class="chooseAwayTeam">
+        <input type="text" name="chooseAwayTeam" [max-num-list]="5" [min-chars]="2" [value]="" placeholder="Choose away team" (change)="onChangeAwayTeam($event)" [(ngModel)]="awayTeamName" auto-complete
+      [source]="teamsList">
+      </div>
+    </div>
+  </div>
+  <div class="matchSettings__main">
+  <button type="button" name="proceedToMatch" class="matchSettings__proceedToMatch" (click)="proceedToMatch()" style="margin-bottom: 5px">Proceed to match</button>
+  <span>
+    <input type="checkbox" name="fastForward" [(ngModel)]="fastForward" (click)="onChangeFastForward($event)">Fast Forward?
+  </span>
+</div>
+</div>
