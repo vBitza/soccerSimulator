@@ -1,0 +1,34 @@
+<div class="statsWrapper" [style.display] = "matchHasStarted ? 'flex' : 'none'">
+  <table class="matchStats table">
+    <tr class="possession">
+      <td class="homePossession homeStats">{{homeTeamPossesion}}%</td>
+      <td class="statsType">Possession</td>
+      <td class="awayPossession awayStats">{{awayTeamPossesion}}%</td>
+    </tr>
+    <tr class="shotsTotal">
+      <td class="homeShotsTotal homeStats">{{homeTeamAttempts}}</td>
+      <td class="statsType">Shots</td>
+      <td class="awayShotsTotal awayStats">{{awayTeamAttempts}}</td>
+    </tr>
+    <tr class="shotsOnGoal">
+      <td class="homeShotsOnGoal homeStats">{{homeTeamShotsOnGoal}}</td>
+      <td class="statsType">Shots on Target</td>
+      <td class="awayShotsOnGoal awayStats">{{awayTeamShotsOnGoal}}</td>
+    </tr>
+    <tr class="fouls">
+      <td class="homeFouls homeStats">{{homeTeamFouls}}</td>
+      <td class="statsType">Fouls</td>
+      <td class="awayFouls awayStats">{{awayTeamFouls}}</td>
+    </tr>
+    <tr class="yellowCards">
+      <td class="homeYellowCards homeStats">{{homeTeamYellowCards}}</td>
+      <td class="statsType">Yellow Cards</td>
+      <td class="awayYellowCards awayStats">{{awayTeamYellowCards}}</td>
+    </tr>
+    <tr class="redCards">
+      <td class="homeRedCards homeStats">{{homeTeamRedCards}}</td>
+      <td class="statsType">Red Cards</td>
+      <td class="awayRedCards awayStats">{{awayTeamRedCards}}</td>
+    </tr>
+  </table>
+</div>
